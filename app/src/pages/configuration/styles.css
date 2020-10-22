@@ -1,0 +1,29 @@
+.config-div {
+	width: 20vw;
+	height: 25vw;
+	margin: auto;
+	padding: 1rem;
+	text-align: center;
+}
+
+input, label, .timeInput, form, h4, h3 {
+	background-color: transparent !important;
+}
+
+h3, h4 {
+	color: #d45079;
+}
+
+input, label {
+	display: block;
+}
+
+.timeInput {
+	display: inline-block;
+	margin-right: 1rem;
+	margin-bottom: 1rem;
+}
+
+.timeInput input {
+	width: 5rem;
+}

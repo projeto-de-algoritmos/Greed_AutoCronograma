@@ -1,0 +1,71 @@
+.config-div {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: center;
+	width: 70vw;
+	height: 100vh;
+	margin: auto;
+}
+
+.config-content {
+	width: 25vw;
+	height: 30vw;
+	margin: auto;
+	padding: 1rem;
+	text-align: center;
+}
+
+input, label, .timeInput, form, h4, h3 {
+	background-color: transparent !important;
+}
+
+h3, h4 {
+	color: #d45079;
+}
+
+input, label {
+	display: block;
+}
+
+.timeInput {
+	display: inline-block;
+	margin-right: 1rem;
+	margin-bottom: 1rem;
+}
+
+.timeInput input {
+	width: 5rem;
+}
+
+input {
+	border-color: #6e5773;
+	border-radius: 5px;
+	border-style: solid;
+	transition: 0.25s;
+}
+
+input[type=number]:focus {
+	border-color: #d45079;
+	outline: none;
+}
+
+input[type=submit] {
+	background-color: #6e5773 !important;
+	color: #e9e1cc !important;
+	margin: auto;
+}
+
+input[type=submit]:hover {
+	filter: brightness(110%);
+}
+
+input[type=submit]:active {
+	transition: 0s;
+	filter: brightness(90%);
+}
+
+img {
+	width: 450px;
+	background-color: transparent !important;
+}

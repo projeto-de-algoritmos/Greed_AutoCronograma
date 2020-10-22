@@ -31,7 +31,7 @@ function Intro() {
           informar sua rotina, suas tarefas e pronto, montamos seu cronograma!
         </p>
 
-        <button onClick={() => history.push("/home")}>Começar</button>
+        <button onClick={() => history.push("/configuration")}>Começar</button>
       </div>
     </div>
   );

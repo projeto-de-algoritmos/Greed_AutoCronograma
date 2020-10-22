@@ -1,0 +1,78 @@
+.tasks {
+  padding: 0;
+  margin: auto;
+  width: 80%;
+  height: 35vh;
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #6e5773;
+  height: 5.4vh;
+}
+
+.toolbar button {
+  color: #e9e1cc;
+  border: 0;
+  height: 4.2vh;
+  padding: 0 8px 0 8px;
+  transition: 0.5s;
+  margin-left: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.72vh;
+  border-radius: 10px;
+  background-color: #d45079;
+}
+
+.toolbar button:hover {
+  background-color: #de5b84;
+}
+
+.toolbar button:active {
+  transition: none;
+  background-color: #c4456c;
+}
+
+.table {
+  position: relative;
+  background-color: red;
+  width: 100%;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.table-head {
+  background-color: #6e5773;
+  color: #e9e1cc;
+}
+
+.table-row, .table-head {
+  display: block;
+  width: 100%;
+  height: 50px;
+}
+
+.table .table-row:nth-child(even) {
+  background-color: #ea9085;
+}
+
+.table-cell {
+  display: inline-block;
+  text-align: center;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.table-row .table-cell:first-child, .table-head .table-cell:first-child {
+  width: 20%;
+}
+
+.table-row .table-cell:nth-child(2), .table-head .table-cell:nth-child(2)  {
+  width: 10%;
+}
+
+.table-row .table-cell:last-child, .table-head .table-cell:last-child  {
+  width: 70%;
+}

@@ -1,7 +1,14 @@
 import React from "react";
+import TaskList from "../../components/TaskList"
+import "./styles.css";
 
 function home() {
-  return <h3>Home</h3>;
+  return (
+  	<div className="home">
+  		<h3>Home</h3>
+  		<TaskList />
+  	</div>
+  );
 }
 
 export default home;

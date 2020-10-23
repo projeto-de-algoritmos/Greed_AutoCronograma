@@ -1,0 +1,54 @@
+.btn {
+  color: #e9e1cc;
+  border: 0  !important;
+  transition: 0.5s !important;
+  font-family: 'Montserrat', sans-serif !important;
+  border-radius: 10px !important;
+  background-color: #d45079 !important;
+}
+
+.btn:hover {
+  filter: brightness(105%);
+}
+
+.btn:focus, .btn:enabled, .btn:selected {
+  outline: none;
+}
+
+.btn:active {
+  transition: none !importantt;
+  filter: brightness(70%);
+  outline: none;
+}
+
+.modal {
+  background-color: transparent;
+  color: #d45079;
+}
+
+.modal-dialog {
+  border-radius: 5px;
+  background-color: #6e5773 !important;
+}
+
+.modal-content {
+  background-color: #6e5773 !important;
+}
+
+.modal-header {
+  border-bottom: 1px solid gray;
+}
+
+.form-control {
+  border-color: #6e5773 !important;
+  border-radius: 5px !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  transition: 0.25s !important;
+}
+
+.form-control:focus {
+  border-color: #d45079 !important;
+  outline: none !important;
+  box-shadow: none;
+}

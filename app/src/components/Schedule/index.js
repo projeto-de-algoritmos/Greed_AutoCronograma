@@ -90,7 +90,7 @@ export default function Schedule() {
     );
   };
   return (
-    <Container>
+    <div className="schedule-container">
       <div onClick={toggleEraseModal} className="clear-button">
         <GrClear className="mr-1" />
         <span>Limpar</span>
@@ -130,6 +130,6 @@ export default function Schedule() {
         </Table>
       </div>
       {clearScheduleModal()}
-    </Container>
+    </div>
   );
 }

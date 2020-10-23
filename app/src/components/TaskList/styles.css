@@ -76,3 +76,19 @@
 .table-row .table-cell:last-child, .table-head .table-cell:last-child  {
   width: 70%;
 }
+
+.table-cell span {
+  display: inline-block;
+  margin-top: 12px;
+  background-color: #d45079;
+  color: #e9e1cc;
+  border-radius: 50px;
+}
+
+.table-row {
+  transition: 0.5s;
+}
+
+.table-row:hover {
+  filter: brightness(105%);
+}

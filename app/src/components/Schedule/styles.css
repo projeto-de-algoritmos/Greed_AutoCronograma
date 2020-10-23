@@ -1,0 +1,31 @@
+.table-bordered td,
+.table-bordered th {
+  border: 1px solid #ccc !important;
+}
+
+.table-bordered td:hover {
+  cursor: pointer;
+}
+.table-bordered td:hover {
+  background-color: #b9b19e;
+}
+
+.schedule-content {
+  overflow: scroll;
+  overflow-y: hidden;
+}
+
+.clear-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  width: fit-content;
+}
+.clear-button:hover {
+  opacity: 0.6;
+}
+
+th#column {
+  text-align: center;
+}

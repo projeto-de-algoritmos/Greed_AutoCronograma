@@ -25,13 +25,13 @@ export default function TaskListModal({
 				addTask({
 					name: taskName,
 					deadline: {
-						day: parseInt(taskDeadlineDay),
-						hour: parseInt(taskDeadlineHour),
-						minute: parseInt(taskDeadlineMinute)
+						day: taskDeadlineDay.toLocaleString(undefined, {minimumIntegerDigits: 2}),
+						hour: taskDeadlineHour.toLocaleString(undefined, {minimumIntegerDigits: 2}),
+						minute: taskDeadlineMinute.toLocaleString(undefined, {minimumIntegerDigits: 2})
 					},
 					time: {
-						hour: parseInt(taskTimeHour),
-						minute: parseInt(taskTimeMinute)
+						hour: taskTimeHour.toLocaleString(undefined, {minimumIntegerDigits: 2}),
+						minute: taskTimeMinute.toLocaleString(undefined, {minimumIntegerDigits: 2})
 					}
 				});
 
@@ -41,13 +41,13 @@ export default function TaskListModal({
 				updateTask(targetTask, {
 					name: taskName,
 					deadline: {
-						day: parseInt(taskDeadlineDay),
-						hour: parseInt(taskDeadlineHour),
-						minute: parseInt(taskDeadlineMinute)
+						day: taskDeadlineDay.toLocaleString(undefined, {minimumIntegerDigits: 2}),
+						hour: taskDeadlineHour.toLocaleString(undefined, {minimumIntegerDigits: 2}),
+						minute: taskDeadlineMinute.toLocaleString(undefined, {minimumIntegerDigits: 2})
 					},
 					time: {
-						hour: parseInt(taskTimeHour),
-						minute: parseInt(taskTimeMinute)
+						hour: taskTimeHour.toLocaleString(undefined, {minimumIntegerDigits: 2}),
+						minute: taskTimeMinute.toLocaleString(undefined, {minimumIntegerDigits: 2})
 					}
 				});
 			}

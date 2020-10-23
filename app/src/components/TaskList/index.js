@@ -77,12 +77,12 @@ export default function TaskList() {
             return (
               <div className="table-row">
                 <div className="table-cell">{task.name}</div>
-                <div className="table-cell">{dayMap[task.deadline.day]} - {task.deadline.hour}:{task.deadline.minute}</div>
+                <div className="table-cell">{dayMap[parseInt(task.deadline.day)]} - {task.deadline.hour}:{task.deadline.minute}</div>
                 <div className="table-cell"><span onClick={() => {
                   setModalTask(0);
                   setTargetTask(index);
                   setModalShow(true);
-                }}style={{width: (task.time.hour * 60 + task.time.minute) * 100/1440 + "%"}}>{task.time.hour ? task.time.hour + "h" : null}{task.time.minute ? task.time.minute + "min" : null}</span></div>
+                }}style={{width: (parseInt(task.time.hour) * 60 + parseInt(task.time.minute)) * 100/1440 + "%"}}>{parseInt(task.time.hour) ? parseInt(task.time.hour) + "h" : null}{parseInt(task.time.minute) ? task.time.minute + "min" : null}</span></div>
               </div>
             )
           })}

@@ -3,9 +3,13 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Col, Row, Form, For
 import "./styles.css";
 
 export default function TaskListModal({
-	taskList,
-	updateTask,
 	addTask,
+	taskList,
+	modalTask,
+	isVisible,
+	updateTask,
+	setVisible,
+	targetTask,
 }) {
 	const [ taskName, setTaskName ] = useState(null);
 	const [ taskDeadlineDay, setTaskDeadlineDay ] = useState(null);
@@ -13,40 +17,74 @@ export default function TaskListModal({
 	const [ taskDeadlineMinute, setTaskDeadlineMinute ] = useState(null);
 	const [ taskTimeHour, setTaskTimeHour ] = useState(null);
 	const [ taskTimeMinute, setTaskTimeMinute ] = useState(null);
-	const [ show, setShow ] = useState(false);
 
-	const toggleModal = () => setShow(!show);
+	const toggleModal = () => setVisible(!isVisible);
 	const submitTask = () => {
-		if(taskName && taskDeadlineDay && taskDeadlineHour && taskDeadlineMinute && taskTimeHour &&	taskTimeMinute) {
-			addTask({
-				name: taskName,
-				deadline: {
-					day: parseInt(taskDeadlineDay),
-					hour: parseInt(taskDeadlineHour),
-					minute: parseInt(taskDeadlineMinute)
-				},
-				time: {
-					hour: parseInt(taskTimeHour),
-					minute: parseInt(taskTimeMinute)
-				}
-			});
+		if(taskName && taskDeadlineDay && taskDeadlineHour != null && taskDeadlineMinute != null && taskTimeHour != null &&	taskTimeMinute != null) {
+			if(modalTask) {
+				addTask({
+					name: taskName,
+					deadline: {
+						day: parseInt(taskDeadlineDay),
+						hour: parseInt(taskDeadlineHour),
+						minute: parseInt(taskDeadlineMinute)
+					},
+					time: {
+						hour: parseInt(taskTimeHour),
+						minute: parseInt(taskTimeMinute)
+					}
+				});
+
+			}
+
+			else {
+				updateTask(targetTask, {
+					name: taskName,
+					deadline: {
+						day: parseInt(taskDeadlineDay),
+						hour: parseInt(taskDeadlineHour),
+						minute: parseInt(taskDeadlineMinute)
+					},
+					time: {
+						hour: parseInt(taskTimeHour),
+						minute: parseInt(taskTimeMinute)
+					}
+				});
+			}
+
+			toggleModal();
 		} else {
 			alert("Todos os campos são necessários!");
 		}
 	};
 
 	return (
-		<>
-		<Button onClick={toggleModal}>Adicionar tarefa</Button>
+		<Modal isOpen={isVisible} toggle={toggleModal} onOpened={() => {
+			if(modalTask) {
+				setTaskName(null);
+				setTaskDeadlineDay(null);
+				setTaskDeadlineHour(null);
+				setTaskDeadlineMinute(null);
+				setTaskTimeHour(null);
+				setTaskTimeMinute(null);
+			}
 
-		<Modal isOpen={show} toggle={toggleModal}>
-			<ModalHeader>Adicionar Tarefa</ModalHeader>
+			else {
+				setTaskName(taskList[targetTask].name);
+				setTaskDeadlineDay(taskList[targetTask].deadline.day);
+				setTaskDeadlineHour(taskList[targetTask].deadline.hour);
+				setTaskDeadlineMinute(taskList[targetTask].deadline.minute);
+				setTaskTimeHour(taskList[targetTask].time.hour);
+				setTaskTimeMinute(taskList[targetTask].time.minute);
+			}
+		}}>
+			<ModalHeader>{modalTask ? "Adicionar Tarefa" : "Editar Tarefa" + targetTask}</ModalHeader>
 
 			<ModalBody>
 				<Form>
 					<FormGroup>
 						<Label for="name">Nome da tarefa:</Label>
-						<Input type="text" name="name" onChange={(e) => {
+						<Input value={taskName} type="text" name="name" onChange={(e) => {
 							setTaskName(e.target.value);
 						}} />
 					</FormGroup>
@@ -56,15 +94,16 @@ export default function TaskListModal({
 						<Col>
 							<FormGroup>
 								<Label for="day">Dia:</Label>
-								<Input type="select" name="day" onChange={(e) => {
+								<Input value={taskDeadlineDay} type="select" name="day" onChange={(e) => {
 									setTaskDeadlineDay(e.target.value);
 								}} >
+									<option value="0"></option>
 									<option value="1">Domingo</option>
 									<option value="2">Segunda-feira</option>
 									<option value="3">Terça-feira</option>
 									<option value="4">Quarta-feira</option>
 									<option value="5">Quinta-feira</option>
-									<option value="6">Sexta-feita</option>
+									<option value="6">Sexta-feira</option>
 									<option value="7">Sábado</option>
 								</Input>
 							</FormGroup>
@@ -73,7 +112,7 @@ export default function TaskListModal({
 						<Col>
 							<FormGroup>
 								<Label for="hour">Horas:</Label>
-								<Input type="number" name="hour" min="0" max="23" onChange={(e) => {
+								<Input value={taskDeadlineHour} type="number" name="hour" min="0" max="23" onChange={(e) => {
 									setTaskDeadlineHour(e.target.value);
 								}} />
 							</FormGroup>
@@ -82,7 +121,7 @@ export default function TaskListModal({
 						<Col>
 							<FormGroup>
 								<Label for="minute">Minutos:</Label>
-								<Input type="number" name="minute" min="0" max="59" onChange={(e) => {
+								<Input value={taskDeadlineMinute} type="number" name="minute" min="0" max="59" onChange={(e) => {
 									setTaskDeadlineMinute(e.target.value);
 								}} />
 							</FormGroup>
@@ -94,7 +133,7 @@ export default function TaskListModal({
 						<Col>
 							<FormGroup>
 								<Label for="time-hour">Horas:</Label>
-								<Input type="number" name="time-hour" min="0" max="23" onChange={(e) => {
+								<Input value={taskTimeHour} type="number" name="time-hour" min="0" max="23" onChange={(e) => {
 									setTaskTimeHour(e.target.value);
 								}} />
 							</FormGroup>
@@ -103,7 +142,7 @@ export default function TaskListModal({
 						<Col>
 							<FormGroup>
 								<Label for="time-minute">Minutos:</Label>
-								<Input type="number" name="time-minute" min="0" max="59" onChange={(e) => {
+								<Input value={taskTimeMinute} type="number" name="time-minute" min="0" max="59" onChange={(e) => {
 									setTaskTimeMinute(e.target.value);
 								}} />
 							</FormGroup>
@@ -117,6 +156,5 @@ export default function TaskListModal({
 				<Button onClick={toggleModal}>Cancelar</Button>
 			</ModalFooter>
 		</Modal>
-		</>
 	);
 }

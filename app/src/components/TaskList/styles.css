@@ -37,7 +37,6 @@
 
 .table {
   position: relative;
-  background-color: red;
   width: 100%;
   height: 300px;
   overflow-y: scroll;
@@ -83,6 +82,14 @@
   background-color: #d45079;
   color: #e9e1cc;
   border-radius: 50px;
+  min-width: min-content;
+  transition: 0.25s;
+}
+
+.table-cell span:hover {
+  transform-origin: center;
+  transform: scale(110%);
+  cursor: pointer;
 }
 
 .table-row {

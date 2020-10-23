@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button } from "reactstrap";
 import TaskListModal from "../TaskListModal";
 import "./styles.css";
 
@@ -31,7 +32,9 @@ export default function TaskList() {
     }
   },
   ]);
-
+  const [modalTask, setModalTask] = useState();
+  const [modalShow, setModalShow] = useState(false);
+  const [targetTask, setTargetTask] = useState();
   const dayMap = {
     1: 'DOM',
     2: 'SEG',
@@ -43,7 +46,7 @@ export default function TaskList() {
   };
 
   const updateTask = (taskIndex, taskInfo) => {
-    return;
+    tasks[taskIndex] = taskInfo;
   };
 
   const addTask = (task) => {
@@ -53,8 +56,13 @@ export default function TaskList() {
   return (
       <div className="tasks">
         <div className="toolbar">
-          <TaskListModal addTask={addTask}/>
-          <button>Limpar</button>
+          <Button onClick={() => {
+            setModalTask(1);
+            setModalShow(true);
+          }}>Adicionar tarefa</Button>
+          <Button onClick={() => {
+                  setTasks([]);
+                }}>Limpar</Button>
         </div>
 
 
@@ -65,16 +73,25 @@ export default function TaskList() {
         </div>
           
         <div className="table">
-          {tasks.map((task) => {
+          {tasks.map((task, index) => {
             return (
               <div className="table-row">
                 <div className="table-cell">{task.name}</div>
                 <div className="table-cell">{dayMap[task.deadline.day]} - {task.deadline.hour}:{task.deadline.minute}</div>
-                <div className="table-cell"><span style={{width: (task.time.hour * 60 + task.time.minute) * 100/1440 + "%"}}>{task.time.hour ? task.time.hour + "h" : null}{task.time.minute ? task.time.minute + "min" : null}</span></div>
+                <div className="table-cell"><span onClick={() => {
+                  setModalTask(0);
+                  setTargetTask(index);
+                  setModalShow(true);
+                }}style={{width: (task.time.hour * 60 + task.time.minute) * 100/1440 + "%"}}>{task.time.hour ? task.time.hour + "h" : null}{task.time.minute ? task.time.minute + "min" : null}</span></div>
               </div>
             )
           })}
         </div>
+
+        <TaskListModal addTask={addTask} isVisible={modalShow}
+        setVisible={setModalShow} modalTask={modalTask}
+        targetTask={targetTask} taskList={tasks}
+        updateTask={updateTask} />
       </div>
     );
   }

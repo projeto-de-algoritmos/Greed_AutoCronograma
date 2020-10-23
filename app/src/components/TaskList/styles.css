@@ -27,12 +27,12 @@
 }
 
 .toolbar button:hover {
-  background-color: #de5b84;
+  filter: brightness(105%);
 }
 
 .toolbar button:active {
   transition: none;
-  background-color: #c4456c;
+  filter: brightness(95%);
 }
 
 .table {

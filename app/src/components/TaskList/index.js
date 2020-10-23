@@ -12,8 +12,8 @@ export default function TaskList() {
       minute: 59
     },
     time: {
-      hour: 2,
-      minute: 0
+      hour: 3,
+      minute: 30
     }
   },
 
@@ -42,10 +42,18 @@ export default function TaskList() {
     7: 'SAB'
   };
 
+  const updateTask = (taskIndex, taskInfo) => {
+    return;
+  };
+
+  const addTask = (task) => {
+    setTasks([...tasks, task]);
+  };
+
   return (
       <div className="tasks">
         <div className="toolbar">
-          <button>Adicionar tarefa</button>
+          <TaskListModal addTask={addTask}/>
           <button>Limpar</button>
         </div>
 
@@ -66,16 +74,7 @@ export default function TaskList() {
               </div>
             )
           })}
-
-          <div className="table-row">
-            <div className="table-cell">PA - Autoestudo</div>
-            <div className="table-cell">SEG - 23:59</div>
-            <div className="table-cell"><span style={{width: "8%"}}>2h</span></div>
-          </div>
         </div>
-
-        <TaskListModal />
-
       </div>
     );
   }

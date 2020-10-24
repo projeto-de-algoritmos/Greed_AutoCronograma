@@ -1,4 +1,4 @@
-# Auto Cronograma
+# [Auto Cronograma](https://autocronograma.netlify.app/)
 
 **Número da Lista**: 3<br>
 **Conteúdo da Disciplina**: Greed<br>
@@ -40,6 +40,8 @@ Auto Cronograma é uma aplicação web para a automação da criação de cronog
 - 2 -> Execute o comando ```yarn start```
 
 - 3 -> O projeto estará em execução no endereço ```localhost:3000```
+
+#### Ou acesse através do deploy disponibilizado na descrição do repositório ou como hiperlink no título deste documento
 
 ## Outros 
 O projeto utiliza do algoritmo Scheduling to Minimize Lateness para ajustar as tarefas do usuário na grade horária.

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import configImage from "../../assets/ConfigImage.svg";
 import "./styles.css";
+import getWeekTotalMin from "../../utils/getWeekTotalMin";
 
 function Configuration() {
   const [initialHour, setInitialHour] = useState(0);
@@ -38,6 +39,13 @@ function Configuration() {
                   hour: stepHour ? stepHour : 1,
                   minute: stepMinute ? stepMinute : 0,
                 },
+                stepMin: (stepHour * 60 || 0) + (stepMinute || 0),
+                totalWeekTimeMin: getWeekTotalMin(
+                  initialHour,
+                  initialMinute,
+                  finalHour,
+                  finalMinute
+                ),
               })
             );
 

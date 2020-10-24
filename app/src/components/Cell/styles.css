@@ -1,0 +1,7 @@
+td.cell:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+}
+td.cell {
+  transition: 0.5s;
+}

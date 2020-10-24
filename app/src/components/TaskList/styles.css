@@ -92,7 +92,7 @@
 
 .table-cell span:hover {
   transform-origin: center;
-  transform: scale(110%);
+  transform: scale(1.1);
   cursor: pointer;
 }
 

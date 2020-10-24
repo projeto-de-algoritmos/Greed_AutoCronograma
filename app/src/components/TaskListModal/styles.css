@@ -1,8 +1,8 @@
 .btn {
   color: #e9e1cc;
-  border: 0  !important;
+  border: 0 !important;
   transition: 0.5s !important;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
   border-radius: 10px !important;
   background-color: #d45079 !important;
 }
@@ -11,12 +11,14 @@
   filter: brightness(105%);
 }
 
-.btn:focus, .btn:enabled, .btn:selected {
+.btn:focus,
+.btn:enabled,
+.btn:selected {
   outline: none;
 }
 
 .btn:active {
-  transition: none !importantt;
+  transition: none !important;
   filter: brightness(70%);
   outline: none;
 }

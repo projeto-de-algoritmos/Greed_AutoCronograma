@@ -12,15 +12,6 @@ function Home() {
 
     const weekTotalMin = Number(config.totalWeekTimeMin);
 
-    let taskUnavailableTime = JSON.parse(
-      localStorage.getItem("task:unavailable")
-    );
-
-    taskUnavailableTime.sort(
-      (time1, time2) => Number(time1.finalTimeMin) - Number(time2.finalTimeMin)
-    );
-    console.log("taskList", taskList);
-
     const dayTotalMin = weekTotalMin / 7;
 
     const taskListMin = taskList.map((task) => ({
@@ -44,14 +35,6 @@ function Home() {
     let schedule = [];
 
     taskListSorted.forEach((task) => {
-      // const unavailableTimer = getSquaresWithinRange(
-      //   timerCounter,
-      //   timerCounter + Number(task.timeMin),
-      //   taskUnavailableTime
-      // );
-
-      // console.log(unavailableTimer, timerCounter);
-
       schedule.push({
         initTimeMin: timerCounter,
         time: Number(task.timeMin),
@@ -65,19 +48,6 @@ function Home() {
     SetOrganizedTasks(schedule);
   }
 
-  // function getSquaresWithinRange(start, final, squares) {
-  //   console.log("squares", squares);
-  //   let resultArray = [];
-
-  //   while (
-  //     squares[0] &&
-  //     squares[0].initTimeMin >= start &&
-  //     squares[0].finalTimeMin <= final
-  //   )
-  //     resultArray.push(squares.shift());
-
-  //   return resultArray.length;
-  // }
   return (
     <div className="home">
       <h3>Auto Cronograma</h3>
